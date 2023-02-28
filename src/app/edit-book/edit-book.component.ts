@@ -6,8 +6,8 @@ import { BookService } from '../book.service';
 
 @Component({
   selector: 'app-edti-book',
-  templateUrl: './edti-book.component.html',
-  styleUrls: ['./edti-book.component.css']
+  templateUrl: './edit-book.component.html',
+  styleUrls: ['./edit-book.component.css']
 })
 
 export class EdtiBookComponent {
@@ -15,7 +15,8 @@ export class EdtiBookComponent {
   editBook?: DetailedBook;
   constructor(private activateRoute: ActivatedRoute, private bookService: BookService){
       this.id = activateRoute.snapshot.params['id'];
-      bookService.getBookById(this.id).subscribe(a => this.editBook = a);
+      if(this.id != null){
+        bookService.getBookById(this.id).subscribe(a => this.editBook = a);
+      }
   }
-  
 }

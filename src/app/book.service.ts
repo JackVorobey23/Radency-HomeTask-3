@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { BookListComponentDto, DetailedBook } from 'src/interface';
-import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })

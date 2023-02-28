@@ -7,29 +7,27 @@
             <div class="p-2 input-group">
                 <span class="input-group-text">Title</span>
                 <input type="text" class="form-control" 
-                value="{{editBook != null ? '{{editBook.title}}' : ''}}">
+                value={{editBook?.title}}>
             </div>
 
             <div class="p-2">
                 <input class="form-control" type="file" id="formFile">
-              </div>
+            </div>
 
             <div class="p-2 input-group">
                 <span class="input-group-text">Genre</span>
-                <input type="text" class="form-control" 
-                value="{{editBook != null ? '{{editBook.title}}' : ''}}">
+                <input type="text" class="form-control" value={{editBook?.genre}}>
             </div>
 
             <div class="p-2 input-group">
                 <span class="input-group-text">Author</span>
-                <input type="text" class="form-control" >
+                <input type="text" class="form-control" value={{editBook?.author}}>
             </div>
         </div>
-
         <div class="flex-fill">
             <div class="d-flex p-2 form-floating" style="height: 100%">
-                <div class="p-2 flex-grow-1">Comments</div>
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height:100%"></textarea>
+                <div class="p-2 flex-grow-1">Content</div>
+                <textarea class="form-control p-2" style="height:100%;" value={{editBook?.content}}></textarea>
               </div>
         </div>
     </div>

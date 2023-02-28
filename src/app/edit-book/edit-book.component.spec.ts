@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EdtiBookComponent } from './edti-book.component';
+import { EdtiBookComponent } from './edit-book.component';
 
 describe('EdtiBookComponent', () => {
   let component: EdtiBookComponent;
