@@ -10,13 +10,9 @@ import { ViewBookComponent } from '../view-book/view-book.component';
   styleUrls: ['./book-list-item.component.css']
 })
 
-export class BookListItemComponent implements OnInit {
+export class BookListItemComponent {
   @Input() book?: BookListComponentDto;
   constructor(private bookService: BookService, private modal: NgbModal){}
-
-  ngOnInit(){
-    console.log(this.book);
-  }
 
   onViewClick(){
     const modal = this.modal.open(ViewBookComponent, {centered: true,size: "xl"});

@@ -22,18 +22,13 @@ export class EdtiBookComponent {
         this.editBook = {} as DetailedBook;
         return;
       }
-      console.log(e.url);
       const a = e.url.split('/')[2];
       this.id = Number(a[a.length - 1]);
-      console.log(this.id);
       bookService.getBookById(this.id).subscribe(a => this.editBook = a);
-      console.log(this.editBook);
     });
   }
   AddBookClick(){
     this.bookService.saveBook(this.editBook!).subscribe();
-    
-    console.log(this.editBook);
   }
   onFileChange(Event: any){
     const file = Event.target.files[0];
@@ -41,7 +36,6 @@ export class EdtiBookComponent {
     reader.readAsDataURL(file);
     reader.onload = () => {
         this.editBook!.cover = reader.result!.toString();
-        console.log(this.editBook!.cover);
     };
   }
   
