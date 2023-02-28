@@ -9,7 +9,7 @@ import { BookService } from '../book.service';
   templateUrl: './edit-book.component.html',
   styleUrls: ['./edit-book.component.css']
 })
-export class EdtiBookComponent {
+export class EditBookComponent {
   id!: number;
   editBook?: DetailedBook;
   @Output() newItemEvent = new EventEmitter<string>();

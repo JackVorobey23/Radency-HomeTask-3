@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EdtiBookComponent } from './edit-book/edit-book.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 const appRoutes: Routes =[
-  { path: '', component: EdtiBookComponent},
-  { path: 'edit/:id', component: EdtiBookComponent}
+  { path: '', component: EditBookComponent},
+  { path: 'edit/:id', component: EditBookComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],

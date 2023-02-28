@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookListItemComponent } from './book-list-item/book-list-item.component';
 import { BooksPageComponent } from './books-page/books-page.component';
-import { EdtiBookComponent } from './edit-book/edit-book.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 import { ViewBookComponent } from './view-book/view-book.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +20,7 @@ import { FormsModule } from '@angular/forms';
     BookListComponent,
     BookListItemComponent,
     BooksPageComponent,
-    EdtiBookComponent,
+    EditBookComponent,
     ViewBookComponent
   ],
   imports: [
