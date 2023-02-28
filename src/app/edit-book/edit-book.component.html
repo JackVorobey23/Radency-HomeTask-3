@@ -1,38 +1,37 @@
-<div class="col box">
-    <div class="border-bottom border-secondary h4 pb-2 mb-4">{{id == null ? "Add Book" : "Edit Book" + id}}</div>
+<div class="col box" *ngIf="editBook">
+    <div class="border-bottom border-secondary h4 pb-2 mb-4">Add Book</div>
     <div class="d-flex gap-3">
 
         <div class="flex-fill">
-
+            
             <div class="p-2 input-group">
                 <span class="input-group-text">Title</span>
-                <input type="text" class="form-control" 
-                value={{editBook?.title}}>
+                <input type="text" class="form-control" [(ngModel)]="editBook.title">
             </div>
 
             <div class="p-2">
-                <input class="form-control" type="file" id="formFile">
+                <input accept="image/*" class="form-control" type="file" id="formFile"(change)="onFileChange($event)">
             </div>
 
             <div class="p-2 input-group">
                 <span class="input-group-text">Genre</span>
-                <input type="text" class="form-control" value={{editBook?.genre}}>
+                <input type="text" class="form-control" [(ngModel)]="editBook.genre">
             </div>
 
             <div class="p-2 input-group">
                 <span class="input-group-text">Author</span>
-                <input type="text" class="form-control" value={{editBook?.author}}>
+                <input type="text" class="form-control" [(ngModel)]="editBook.author">
             </div>
         </div>
         <div class="flex-fill">
             <div class="d-flex p-2 form-floating" style="height: 100%">
                 <div class="p-2 flex-grow-1">Content</div>
-                <textarea class="form-control p-2" style="height:100%;" value={{editBook?.content}}></textarea>
+                <textarea class="form-control p-2" style="height:100%;" [(ngModel)]="editBook.content"></textarea>
               </div>
         </div>
     </div>
     <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-info m-2">Add</button>
-        <button type="button" class="btn btn-warning m-2">Clear</button>
+        <button type="submit" class="btn btn-info m-2" (click)="AddBookClick()" >{{id == null ? "Add" : "Save"}}</button>
+        <button type="button" class="btn btn-warning m-2" routerLink=''>Clear</button>
     </div>
 </div>

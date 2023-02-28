@@ -1,10 +1,3 @@
-export interface BookInterface {
-    "id": number,    
-	"title": string,
-	"author": string,
-	"rating": number,       
-	"reviewsNumber": number
-  }
 export interface DetailedBook{
     id: number,
 	title: string,
@@ -24,5 +17,7 @@ export interface BookListComponentDto{
 	id: number,
 	title: string,
 	reviewsNumber: number,
+	cover: string,
 	rating: number
 }
+

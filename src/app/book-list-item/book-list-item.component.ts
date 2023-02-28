@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, of } from 'rxjs';
-import { BookInterface, BookListComponentDto, DetailedBook, Review } from 'src/interface';
+import { BookListComponentDto, DetailedBook, Review } from 'src/interface';
 import { BookService } from '../book.service';
 import { ViewBookComponent } from '../view-book/view-book.component';
 @Component({
@@ -15,7 +15,7 @@ export class BookListItemComponent implements OnInit {
   constructor(private bookService: BookService, private modal: NgbModal){}
 
   ngOnInit(){
-    console.log(this.book!.id);
+    console.log(this.book);
   }
 
   onViewClick(){

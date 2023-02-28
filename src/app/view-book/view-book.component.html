@@ -3,15 +3,15 @@
     <div class="modal-content" style="height: 700px;">
       <div class="modal-header d-flex justify-content-between">
         <hr>
-          <div class="d-flex" id="exampleModalToggleLabel">Details</div>          
-          <div class="d-flex"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+          <div class="d-flex fs-4" id="exampleModalToggleLabel">Details</div>          
+          <div class="d-flex"><button type="button" (click)="closeButtonClick()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
 
       </div>
       <div class="modal-body container text-center p-0 pt-2" style="max-height: 412px;"><!-- book details -->
       <div class="row">
         <div class="col container">
           <div class="row d-flex justify-content-center">
-            <img class="book-image" src="https://images.squarespace-cdn.com/content/v1/5a30b5abdc2b4ab3bb9fc264/1588317779169-OG0OC0HR5YSEESFO523J/holy-bible-cover.jpg?format=500w" alt="...">
+            <img class="book-image" [src]="detailedBook.cover" alt="...">
           </div>
           <div class="row d-flex justify-content-around">
             <pre><br>Rating: {{detailedBook?.rating}};         Reviews: {{detailedBook?.reviews?.length}}</pre>

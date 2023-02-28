@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ApplicationRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ActivatedRoute, Router, RouterEvent, Event, NavigationEnd } from '@angular/router';
+import { filter, Observable } from 'rxjs';
 import { DetailedBook } from 'src/interface';
 import { BookService } from '../book.service';
 
@@ -9,14 +9,40 @@ import { BookService } from '../book.service';
   templateUrl: './edit-book.component.html',
   styleUrls: ['./edit-book.component.css']
 })
-
 export class EdtiBookComponent {
   id!: number;
   editBook?: DetailedBook;
-  constructor(private activateRoute: ActivatedRoute, private bookService: BookService){
-      this.id = activateRoute.snapshot.params['id'];
-      if(this.id != null){
-        bookService.getBookById(this.id).subscribe(a => this.editBook = a);
+  @Output() newItemEvent = new EventEmitter<string>();
+  constructor(public router: Router, private bookService: BookService, private appRef: ApplicationRef) {
+    router.events.pipe(
+       filter((e: Event): e is NavigationEnd => e instanceof NavigationEnd)
+    )
+    .subscribe((e: NavigationEnd) => {
+      if(e.url.length <= 1){
+        this.editBook = {} as DetailedBook;
+        return;
       }
+      console.log(e.url);
+      const a = e.url.split('/')[2];
+      this.id = Number(a[a.length - 1]);
+      console.log(this.id);
+      bookService.getBookById(this.id).subscribe(a => this.editBook = a);
+      console.log(this.editBook);
+    });
   }
+  AddBookClick(){
+    this.bookService.saveBook(this.editBook!).subscribe();
+    
+    console.log(this.editBook);
+  }
+  onFileChange(Event: any){
+    const file = Event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        this.editBook!.cover = reader.result!.toString();
+        console.log(this.editBook!.cover);
+    };
+  }
+  
 }

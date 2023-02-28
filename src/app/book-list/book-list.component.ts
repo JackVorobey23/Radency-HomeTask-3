@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { BookInterface, BookListComponentDto } from 'src/interface';
+import { BookListComponentDto } from 'src/interface';
 import { BookService } from '../book.service';
 @Component({
   selector: 'app-book-list',
@@ -13,6 +13,14 @@ export class BookListComponent implements OnInit {
   constructor(private bookService: BookService){}
 
   ngOnInit(){
+    this.bookService.booksUpdated.subscribe(()=>{
+      if(this.allActive){
+        this.books = this.bookService.getAllBooks();
+      }
+      else{
+        this.books = this.bookService.getRecommendedBooks();
+      }
+    });
     this.books = this.bookService.getAllBooks();
   }
 

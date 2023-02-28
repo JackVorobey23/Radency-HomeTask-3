@@ -11,11 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {Routes, RouterModule} from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
-const appRoutes: Routes =[
-  { path: '', component: EdtiBookComponent},
-  { path: 'edit/:id', component: EdtiBookComponent}
-];
 
 @NgModule({
   declarations: [
@@ -28,11 +25,11 @@ const appRoutes: Routes =[
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 <div class="col box p-3 border border-secondary rounded-3 justify-content-between">
     
     <div class="w-70">
-        <img src="https://images.squarespace-cdn.com/content/v1/5a30b5abdc2b4ab3bb9fc264/1588317779169-OG0OC0HR5YSEESFO523J/holy-bible-cover.jpg?format=500w" class="float-start book-image me-2" alt="...">
+        <img [src]="book?.cover" class="float-start book-image me-2" alt="...">
     </div>
     
     <div class="w-30">
@@ -12,7 +12,7 @@
                     👁
                 </button>
 
-                <button type="button" class="btn btn-outline-secondary">✎</button>
+                <a type="button" routerLink='/edit/{{book?.id}}' class="btn btn-outline-secondary">✎</a>
             </div>
         </div>
         <div class="d-flex justify-content-between">
