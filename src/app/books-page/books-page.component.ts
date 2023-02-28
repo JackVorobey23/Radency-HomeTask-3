@@ -6,10 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./books-page.component.css']
 })
 export class BooksPageComponent {
-  public trigger: number = 0;
-
-  public rerender(): void {
-    this.trigger++;
-    console.log("aaa");
-  }
+  
 }
